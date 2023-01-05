@@ -5,3 +5,4 @@ bower.json
 dist/
 node_modules/
 *.swp
+publish/

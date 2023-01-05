@@ -23,11 +23,14 @@ function update(mode) {
   if (mode === 'quiet') {
     each(me.data.datasets, (dataset, datasetIndex) => {
       const controller = me.getDatasetMeta(datasetIndex).controller;
-
-      // Set transition mode to 'quiet'
-      controller._setStyle = function(element, index, _mode, active) {
-        DatasetController.prototype._setStyle.call(this, element, index, 'quiet', active);
-      };
+      if(controller != null)
+      {
+        // Set transition mode to 'quiet'
+        controller._setStyle = function(element, index, _mode, active) {
+          DatasetController.prototype._setStyle.call(this, element, index, 'quiet', active);
+        };  
+      }
+      
     });
   }
 
@@ -169,15 +172,18 @@ export default {
   },
 
   beforeEvent(chart, args) {
-    const streaming = chart.$streaming;
-    const event = args.event;
+    if(chart.$streaming == undefined)
+    {
+      const streaming = chart.$streaming;
+      const event = args.event;
 
-    if (event.type === 'mousemove') {
-      // Save mousemove event for reuse
-      streaming.lastMouseEvent = event;
-    } else if (event.type === 'mouseout') {
-      // Remove mousemove event
-      delete streaming.lastMouseEvent;
+      if (event.type === 'mousemove') {
+        // Save mousemove event for reuse
+        streaming.lastMouseEvent = event;
+      } else if (event.type === 'mouseout') {
+        // Remove mousemove event
+        delete streaming.lastMouseEvent;
+      }
     }
   },
 

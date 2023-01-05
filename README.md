@@ -10,6 +10,8 @@
 
 Forked from https://github.com/nagix/chartjs-plugin-streaming because it appears to be unmaintained.
 
+Forked from https://github.com/Robloche/chartjs-plugin-streaming because it's a slight error in the tooltip display of the chart, so we branched to fix it. Since it is an open source project, anyone can fork it and modify it if necessary. Thanks to the original author, @nagix, and to @robloche for a recent fix.
+
 chartjs-plugin-streaming 3.x requires Chart.js 4.1.1 or later. If you need Chart.js 2.x support, use the following versions.
 
 - For Chart.js 2.9.x, 2.8.x or 2.7.x, use [version 1.9.0](https://github.com/nagix/chartjs-plugin-streaming/releases/tag/v1.9.0) ([tutorials](https://nagix.github.io/chartjs-plugin-streaming/1.9.0/) and [samples](https://nagix.github.io/chartjs-plugin-streaming/1.9.0/samples/))
